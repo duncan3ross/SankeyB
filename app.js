@@ -36,7 +36,7 @@ var OPACITY = {
 
 var formatNumber = function (d) {
   var numberFormat = d3.format(",.1f"); // one decimal places
-  return numberFormat(d) + "%";
+  return numberFormat(d) + "TEST%";
 },
 
 formatFlow = function (d) {
@@ -92,7 +92,7 @@ biHiSankey = d3.biHiSankey();
 biHiSankey
   .nodeWidth(NODE_WIDTH)
   .nodeSpacing(10)
-  .linkSpacing(4)
+  .linkSpacing(0)
   .arrowheadScaleFactor(0.5) // Specifies that 0.5 of the link's stroke WIDTH should be allowed for the marker at the end of the link.
   .size([WIDTH, HEIGHT]);
 
@@ -389,7 +389,7 @@ function update () {
           .style("opacity", 1).select(".value")
           .text(function () {
             var additionalInstructions = g.children.length ? "\n(Double click to expand)" : "";
-            return g.name + "\nNet flow: " + formatFlow(g.netFlow) + additionalInstructions;
+            return g.name + "\n" + g.value/2 + "%" + additionalInstructions;
           });
     }
   });
