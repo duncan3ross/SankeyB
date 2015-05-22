@@ -41,7 +41,7 @@ var formatNumber = function (d) {
 
 formatFlow = function (d) {
   var flowFormat = d3.format(",.1f"); // one decimal places with sign
-  return flowFormat(Math.abs(d)) + (d < 0 ? " CR" : " DR") + "%";
+  return flowFormat(Math.abs(d)) + "%";
 },
 
 // Used when temporarily disabling user interractions to allow animations to complete
@@ -259,9 +259,9 @@ function update () {
     if (!isTransitioning) {
       showTooltip().select(".value").text(function () {
         if (d.direction > 0) {
-          return d.source.name + " → " + d.target.name + "\n" + formatNumber(d.value);
+          return d.source.name + " to " + d.target.name + "\n" + formatNumber(d.value);
         }
-        return d.target.name + " ← " + d.source.name + "\n" + formatNumber(d.value);
+        return d.target.name + " from " + d.source.name + "\n" + formatNumber(d.value);
       });
 
       d3.select(this)
