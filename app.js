@@ -30,8 +30,8 @@ var OPACITY = {
   },
   TRANSITION_DURATION = 400,
   HEIGHT = 500 - MARGIN.TOP - MARGIN.BOTTOM,
-  WIDTH = 960 - MARGIN.LEFT - MARGIN.RIGHT,
-  LAYOUT_INTERATIONS = 32,
+  WIDTH = 1100 - MARGIN.LEFT - MARGIN.RIGHT,
+  LAYOUT_INTERATIONS = 100,
   REFRESH_INTERVAL = 7000;
 
 var formatNumber = function (d) {
@@ -419,7 +419,7 @@ function update () {
       .attr("text-anchor", "end")
       .attr("transform", null)
       .text(function (d) { return d.name; })
-    .filter(function (d) { return d.x < WIDTH / 2; })
+    .filter(function (d) { return d.x < 2 * WIDTH / 3; })
       .attr("x", 6 + biHiSankey.nodeWidth())
       .attr("text-anchor", "start");
 
